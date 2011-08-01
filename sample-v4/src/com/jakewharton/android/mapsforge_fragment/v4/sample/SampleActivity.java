@@ -10,26 +10,26 @@ import com.jakewharton.android.mapsforge_fragment.MapView;
 import com.jakewharton.android.mapsforge_fragment.MapViewMode;
 
 public class SampleActivity extends FragmentActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getSupportFragmentManager().beginTransaction().add(android.R.id.content, new SampleMapFragment()).commit();
-    }
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		getSupportFragmentManager().beginTransaction().add(android.R.id.content, new SampleMapFragment()).commit();
+	}
 
-    private static class SampleMapFragment extends MapFragment {
-    	public SampleMapFragment() {
-    		super(MapViewMode.OSMARENDER_TILE_DOWNLOAD);
-    	}
-    	
+	private static class SampleMapFragment extends MapFragment {
+		public SampleMapFragment() {
+			super(MapViewMode.OSMARENDER_TILE_DOWNLOAD);
+		}
+
 		@Override
 		public MapView onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 			MapView view = super.onCreateView(inflater, container, savedInstanceState);
-			
+
 			view.setClickable(true);
 			view.setBuiltInZoomControls(true);
 			view.setCenterAndZoom(new GeoPoint(40.434436, -80.024817), (byte)12);
-			
+
 			return view;
 		}
-    }
+	}
 }
